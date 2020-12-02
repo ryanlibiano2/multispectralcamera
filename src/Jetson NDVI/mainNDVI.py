@@ -9,15 +9,14 @@ from gpsinitialize import gps
 from ndvi import ndvi
 import multiprocessing import Process
 
-gps.initialize
+gps.initialize()
 time.sleep(5)
 print('ready to go')
 time.sleep(5)
 if True:
-    p1 = Process(target = display)
+    p1 = Process(target = gps.display())
     p1.start()
-    p2 = Process(target = run )
+    p2 = Process(target = ndvi.run())
     p2.start()
     p1.join()
     p2.join()
-    
