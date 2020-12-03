@@ -7,7 +7,7 @@ import time
 import busio
 from gpsinitialize import gps
 from ndvi import ndvi
-import multiprocessing import Process
+from multiprocessing import Process
 
 gps.initialize()
 time.sleep(5)
