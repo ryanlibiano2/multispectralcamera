@@ -18,5 +18,7 @@ if True:
     p1.start()
     p2 = Process(target = ndvi.run())
     p2.start()
+    p3 = Process(target = camera.snapshot())
     p1.join()
     p2.join()
+    p3.join()
