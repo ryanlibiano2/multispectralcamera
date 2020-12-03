@@ -6,9 +6,8 @@ import adafruit_gps
 
 class gps:
     #initialize attributes for the gps class
-    def __init__():
-        uart = serial.Serial("/dev/ttyUSB0", baudrate = 9600, timeout = 3000)
-        gps = adafruit_gps.GPS(uart)
+    uart = serial.Serial("/dev/ttyUSB0", baudrate = 9600, timeout = 3000)
+    gps = adafruit_gps.GPS(uart)
     #define the initialize gps function
     def initialize():
         gps.send_command(b"PMTK314,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0")
