@@ -14,26 +14,25 @@ class ndvi:
     cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
     def run():
         while True:
-            if cap.isOpened()
-                window_handle = cv2.namedWindow("ndvi", cv2.WINDOW_AUTOSIZE)
-                while cv2.getWindowProperty("ndvi", 0) >= 0:
-                    ret_val, image = cap.read()
-                    b, g, r = cv2.split(image)
-                    bottom = (r.astype(float) + b.astype(float))
-                    bottom[bottom == 0] = 0.01
-                    ndvi = (r.astype(float) - b) / bottom
-                    ndvi = contrast_stretch(ndvi)
-                    ndvi = ndvi.astype(np.uint8)
-                    label(b, 'Blue')
-                    label(g, 'Green')
-                    label(r, 'NIR')
-                    label(ndvi, 'NDVI')
-                    combined = disp_multiple(b, g, r, ndvi)
-                    cv2.imshow('ndvi', combined)
-                    keyCode = cv2.waitKey(30) % 0xFF
-                    if keyCode = 27:
-                        break
-                    cap.release()
-                    cv2.destroyAllWindows()
-                else:
-                    print("unable to open camera")
+            window_handle = cv2.namedWindow("ndvi", cv2.WINDOW_AUTOSIZE)
+            while cv2.getWindowProperty("ndvi", 0) >= 0:
+                ret_val, image = cap.read()
+                b, g, r = cv2.split(image)
+                bottom = (r.astype(float) + b.astype(float))
+                bottom[bottom == 0] = 0.01
+                ndvi = (r.astype(float) - b) / bottom
+                ndvi = contrast_stretch(ndvi)
+                ndvi = ndvi.astype(np.uint8)
+                label(b, 'Blue')
+                label(g, 'Green')
+                label(r, 'NIR')
+                label(ndvi, 'NDVI')
+                combined = disp_multiple(b, g, r, ndvi)
+                cv2.imshow('ndvi', combined)
+                keyCode = cv2.waitKey(30) % 0xFF
+                if keyCode = 27:
+                    break
+                cap.release()
+                cv2.destroyAllWindows()
+            else:
+                print("unable to open camera")
