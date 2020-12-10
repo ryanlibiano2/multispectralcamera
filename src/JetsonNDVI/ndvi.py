@@ -5,9 +5,6 @@ import cv2 as cv
 import numpy as np
 import time
 import busio
-from gpsinitialize import gps
-from ndvi import ndvi
-from multiprocessing import Process
 
 #set a gps instance for initialization and live video
 uart = serial.Serial("/dev/ttyUSB0", baudrate = 9600, timeout = 3000)
